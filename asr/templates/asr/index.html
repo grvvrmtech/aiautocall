@@ -1,0 +1,48 @@
+{% extends "kws/base.html" %}
+{% load static %}
+{% block asr %}
+
+<div class="container-fluid">
+<span id="serverStatusBar" title="Number of available workers"></span>
+
+<div class="controls">
+<button
+	id="buttonStart"
+	onclick="startListening();"
+	title="Starts listening for speech, i.e. starts recording and transcribing.">Start</button>
+<button
+	id="buttonStop"
+	onclick="stopListening();"
+	title="Stops listening for speech. Speech captured so far will be recognized as if the user had stopped speaking at this point. Note that in the default case, this does not need to be called, as the speech endpointer will automatically stop the recognizer listening when it determines speech has completed.">Stopp</button>
+<button
+	id="buttonCancel"
+	onclick="cancel();"
+	title="Cancels the speech recognition.">Katkesta</button>
+</div>
+
+<textarea rows="8" cols="80" id="trans">
+</textarea>
+
+<div id="statusBar"></div>
+
+<hr/>
+
+<div class="controls">
+<button
+	onclick="init();"
+	title="Request access to the microphone">Init</button>
+
+<button
+	onclick="showConfig();"
+	title="Show the configuration of the Dictate object">Config</button>
+
+<button
+	onclick="clearLog();"
+	title="Clear the log">Clear log</button>
+</div>
+
+<pre id="log">
+</pre>	
+	
+	
+{% endblock %}

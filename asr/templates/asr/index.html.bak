@@ -1,0 +1,103 @@
+{% extends "kws/base.html" %}
+{% load static %}
+{% block asr %}
+
+<div class="container-fluid">
+	<div class="container">
+	<div class="row">
+		
+	<div class="col-sm-3"></div>
+	<div class="col-sm-6">
+		<input type='text' id="keyword" placeholder="enter your keyword"></input>
+	</div>
+	<div class="col-sm-3"></div>
+	</div>
+
+
+	<div class= "row" id="screen">
+                        <div class="col-sm-3"></div>
+                        <div class="col-sm-6">
+                            <div id="waveform"></div>
+                        </div>
+                        <div class="col-sm-3"></div>
+        </div>
+
+	<div class="row" id="panel">
+	<div class="col-sm-2"></div>
+	<div class = "col-sm-2">
+		<a href="#" id="record" class="btn btn-success"><span class="glyphicon glyphicon-record"></span> Record</a>
+	</div>
+	<div class = "col-sm-2">
+
+		<a href="#" id="stop" class="btn btn-danger"><span class="glyphicon glyphicon-stop"></span> Stop</a>
+		</div>
+	<div class = "col-sm-2">
+<a href="#" id="play" class="btn btn-warning"><span class="glyphicon glyphicon-play"></span> play</a>
+		</div>
+	<div class = "col-sm-2">
+<a href="#" id="upload" class="btn btn-success"><span class="glyphicon glyphicon-upload"></span> Uplaod</a>
+	
+	</div>
+	<div class = "col-sm-2">
+<a href="#" id="refresh" class="btn btn-info"><span class="glyphicon glyphicon-upload"></span> Refresh</a>
+	
+	</div>
+
+        <div class="col-sm-2"></div>
+	</div>
+	<div class= "row" id="screen">
+                        <div class="col-sm-3"></div>
+                        <div class="col-sm-6">
+                            <div id="waveform"></div>
+                        </div>
+                        <div class="col-sm-3"></div>
+        </div>
+	<div class="row">
+		
+	<div class="col-sm-2"></div>
+	<div class="col-sm-6">
+		<h2 id="random_text"></h2>
+	</div>
+	<div class="col-sm-2"></div>
+	</div>
+
+		
+	<div>
+</div>
+
+<!--Grid System
+        <div class="container">
+                    <div class= "row" id="panel">
+                        <div class="col-sm-3"></div>
+                        <div class="col-sm-1">
+                            <img style="width: 100px; height: 100px" id="record" title="Record" class="img-responsive" src="{% static 'images/record.png' %}"/>
+                        </div>
+                        <div class="col-sm-1">
+                            <img style="width: 100px; height: 100px" id="play" title="Play" class="img-responsive" src="{% static 'images/play.png' %}"/>
+                        </div>
+                        <div class="col-sm-1">
+                            <img style="width: 100px; height: 100px"id="pause" title="Pause" class="img-responsive" src="{% static 'images/pause.png' %}"/>
+                        </div>
+                        <div class="col-sm-1">
+                            <img style="width: 100px; height: 100px"id="stop" title="Stop" class="img-responsive" src="{% static 'images/stop.png' %}"/>
+                        </div>
+                        <div class="col-sm-1">
+				<img style="width: 100px; height: 100px"id="upload" title="Upload" class="img-responsive" src="{% static 'images/up-arrow.png' %}"/>
+                            <form method="post">{% csrf_token %}</form>
+                        </div>
+                        <div class="col-sm-1">
+                            <img style="width: 100px; height: 100px"id="refresh" title="Retry" class="img-responsive" src="{% static 'images/refresh.png' %}"/>
+                        </div>
+                        <div class="col-sm-3"></div>
+                    </div>
+                    
+                    <div class= "row" id="screen">
+                        <div class="col-sm-3"></div>
+                        <div class="col-sm-6">
+                            <div id="waveform"></div>
+                        </div>
+                        <div class="col-sm-3"></div>
+                    </div>
+        </div>
+	-->
+{% endblock %}

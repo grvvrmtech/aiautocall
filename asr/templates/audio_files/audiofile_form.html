@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% block audio_file %}
+{% for message in messages %}
+    <div class="{{ message|bootstrap_message_classes }} alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&#215;</button>
+        {{ message }}
+    </div>
+{% endfor %}
+
+<div class="container">
+    <h1>Audio Recorder</h1>
+    <hr>
+    {% csrf_token %}
+    {% bootstrap_form form %}
+</div>
+
+{% bootstrap_javascript jquery=True %}
+{{ form.media }}
+
+{% endblock %}
