@@ -11,7 +11,7 @@ from email.mime.text import MIMEText
 import os.path
 from os import path
 
-from kws.views import Keyword
+#from kws.views import Keyword
 from django.conf import settings
 from urllib.parse import unquote
 # Create your views here.

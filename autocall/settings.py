@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ['localhost','192.168.105.95','127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
-    'kws.apps.KwsConfig',
+    #'kws.apps.KwsConfig',
     'asr.apps.AsrConfig',
     'django.contrib.admin',
     'django.contrib.auth',

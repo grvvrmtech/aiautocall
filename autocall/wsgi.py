@@ -9,9 +9,12 @@ https://docs.djangoproject.com/en/2.2/howto/deployment/wsgi/
 
 import os, sys
 
+sys.path.append('/home/gaurav/aiautocall')
+
+sys.path.append('/home/gaurav/aiautocall/./env/lib/python3.5/site-packages')
+
 from django.core.wsgi import get_wsgi_application
 
-sys.path.append('/home/abhimanyu/github/autocall')
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'autocall.settings')
 
 application = get_wsgi_application()
