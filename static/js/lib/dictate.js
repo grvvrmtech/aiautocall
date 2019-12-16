@@ -256,6 +256,8 @@
 			if (config["content_id"]) {
 				url += '&content-id=' + config["content_id"]
 			}
+
+			//url  = config.server
 			var ws = new WebSocket(url);
 
 			ws.onmessage = function(e) {

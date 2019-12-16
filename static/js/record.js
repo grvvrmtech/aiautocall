@@ -39,7 +39,7 @@ function preemptRecording()
 }
 
 function createDownloadLink(blob) {
-let socket = new WebSocket("wss://192.168.105.95:8000/client/ws/speech");
+let socket = new WebSocket("wss://192.168.105.95:2700");
 
     socket.onopen = function(e) {
       alert("[open] Connection established");

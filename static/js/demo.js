@@ -10,6 +10,7 @@ var tt = new Transcription();
 
 var dictate = new Dictate({
 		server : "wss://192.168.105.95:8000/client/ws/speech",
+		//server : "wss://192.168.105.95:2700",
 		serverStatus : "wss://192.168.105.95:8000/client/ws/status",
 		recorderWorkerPath : '/static/js/lib/recorderWorker.js',
 		onReadyForSpeech : function() {
