@@ -5,29 +5,34 @@
 <div class="container-fluid">
 <span id="serverStatusBar" title="Number of available workers"></span>
 
-<div class="controls">
-<button
+<div class="controls" align="center">
+<button 
+        style="background-color:lightblue; border-color:black; margin:10px"		      
 	id="buttonStart"
 	onclick="startListening();"
 	title="Starts listening for speech, i.e. starts recording and transcribing.">Start</button>
 <button
+        style="background-color:lightblue; border-color:black; margin:10px"                     
 	id="buttonStop"
 	onclick="stopListening();"
 	title="Stops listening for speech. Speech captured so far will be recognized as if the user had stopped speaking at this point. Note that in the default case, this does not need to be called, as the speech endpointer will automatically stop the recognizer listening when it determines speech has completed.">Stopp</button>
-<button
-	id="buttonCancel"
+<button       
+        style="background-color:lightblue; border-color:black; margin:10px"                     
+        id="buttonCancel"
 	onclick="cancel();"
 	title="Cancels the speech recognition.">Katkesta</button>
 </div>
 
-<textarea rows="8" cols="80" id="trans">
+<div align="center">
+<textarea placeholder="text here" rows="8" cols="80" style="background-color:#FFFFBF" id="trans">
 </textarea>
+</div>
 
 <div id="statusBar"></div>
 
 <hr/>
 
-<div class="controls">
+<div class="controls" align="center">
 <button
 	onclick="init();"
 	title="Request access to the microphone">Init</button>
