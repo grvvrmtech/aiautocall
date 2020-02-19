@@ -1,3 +1,4 @@
+am checking
 sudo apt-get install ngnix uwsgi uwsgi uwsgi-plugin-python3  
 sudo openssl genrsa -des3 -out nginx.key 1024  
 sudo openssl req -new -key nginx.key -out nginx.csr  
