@@ -1,0 +1,80 @@
+{% extends "kws/base.html" %}
+{% load static %}
+{% load i18n %}
+{% block keywordlist %}
+<div class="container">
+<table class="table table-hover">
+</br>
+</br>
+</br>
+</br>
+
+{% if call_to_keyword %}
+<!--
+<thead>	
+	<tr>
+		<td>CALLS<td>
+		{% for keyword, value in keyword_list.items %}
+		<td>{{ keyword|upper }}</td>
+		{% endfor%}
+	</tr>
+</thead>
+-->
+<tbody>
+{% for call, keyword in call_to_keyword.items %}
+	<tr>
+		<td> <h4>{{ call }}</h4> </td>
+		{% for id, value in keyword.items %}
+			{% if id != 'XWAV' %}
+					<td><h4><a class='text-dark' href="{% url 'listen' call_id=call keyword_id=id %}">{{ value }}</a><h4></td>
+			{% endif %}
+		{% endfor %}
+		{% for id, value in keyword.items %}
+			{% if id == 'XWAV' %}
+					<td><audio controls> 
+						<source src="{% static value %}" type="audio/wav">
+						your browser does not support the audio format 
+						</audio>
+					</td>
+			{% endif %}
+		{% endfor %}
+
+	</tr>
+{% endfor %}
+</tbody>
+{% elif duration %}
+<thead class="thead-dark">
+	<tr>
+		<td>CALL</td>
+		<td>KEYWORD</td>
+		<td>BEGIN</td>
+		<td>DURATION</td>
+		<td>PLAY</td>
+	</tr>
+</thead>
+<tbody>
+{% for elem in duration %}
+	<tr>
+	{% for val in elem %}
+		{% if forloop.last %}
+		<td><audio controls> 
+			<source src="{% static val %}" type="audio/wav">
+			your browser does not support the audio format 
+			</audio>
+		</td>
+		{% else %}
+		<td>{{ val }}</td>
+		{% endif %}
+	{% endfor %}
+	</tr>
+{% endfor %}
+</tbody>
+{% else %}
+<div class="container">
+	<center><h1>No keyword are found.</h1></center>
+</div>
+{% endif %}
+
+</table>
+</div>
+{% endblock %}

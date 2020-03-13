@@ -1,0 +1,39 @@
+{% extends "kws/base.html" %}
+{% load static %}
+{% block keywordlist %}
+<!--<div class="container-fluid">-->
+<div class="container">
+	
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<center>
+		<h1>  Enter comma separated keyword and Upload audio files  </h1>
+	</center>
+	<!--
+	<form class="form-horizontal" action="{% url 'keyword' %}" method="post" enctype="multipart/form-data">
+	{% csrf_token %}
+	{% for field in form %}
+		<div class="form-group">
+	    		<label class="control-label col-sm-2" for="{{ field.name }}">{{ field.label }}</label>
+	        	<div class="col-sm-10">
+			      <input type="email" class="form-control" id="email" placeholder="Enter {{ field }}">
+			{{ field }}
+			</div>
+		</div>
+	{% endfor %}
+	<input type="submit" value="Submit" class="btn btn-primary"  />
+	</form>
+	-->
+	<center>
+	<form class="form-horizontal" action="{% url 'keyword' %}" method="post" enctype="multipart/form-data">
+    	{% csrf_token %}
+    	{{ form.as_p }}
+    	<input type="submit" value="Submit" class="btn btn-primary"  />
+	</form>
+	<center>
+<!--</div>-->
+<div>
+{% endblock %}
