@@ -1,0 +1,24 @@
+{% extends "kws/base.html" %}
+{% load static %}
+{% block keywordlist %}
+<div class="container">
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<center>
+	<h1>  Enter comma separated keyword and Search in preloaded audio files  </h1>
+	</center>
+	
+	<center>	
+	<form class="form-horizontal" action="{% url 'search_keyword' %}" method="post" enctype="multipart/form-data">
+    	{% csrf_token %}
+    	{{ form.as_p }}
+    	<input type="submit" value="Submit" class="btn btn-primary"  />
+	</form>
+	<center>
+	
+</div>
+
+{% endblock %}

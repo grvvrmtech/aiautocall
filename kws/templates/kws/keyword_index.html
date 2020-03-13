@@ -1,0 +1,40 @@
+{% extends "kws/base.html" %}
+{% load static %}
+{% block keywordlist %}
+
+
+<div class="container-fluid gtco-banner-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1> 
+			Search Keyword in preloaded files in server
+		</h1>
+            </div>
+	    <div class = "col-md-6">
+	    <h1>
+	    <a href={% url 'search_keyword' %}>Search Keyword <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+	    </h1>
+	    </div>
+
+	</div>
+
+	<div class="row">
+            <div class="col-md-6">
+                <h1>   
+			Upload audio files and search keyword in uploaded files
+		</h1>
+            
+	    
+	    </div>
+		<div class="col-md-6">
+		<h1>
+                <a href={% url 'keyword' %}>Upload Audio Files <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+		<h1>
+		</div>
+	</div>
+
+    </div>
+</div>
+
+{% endblock %}

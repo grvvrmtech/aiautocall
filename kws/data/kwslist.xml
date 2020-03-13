@@ -1,0 +1,5 @@
+<kwslist kwlist_filename="" language="cantonese" system_id="">
+  <detected_kwlist kwid="WSJ-0001" search_time="1" oov_count="0">
+    <kw file="utt0004" channel="1" tbeg="95.06" dur="0.50" score="1" decision="YES"/>
+  </detected_kwlist>
+</kwslist>
