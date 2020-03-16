@@ -209,7 +209,11 @@ class SearchKeyword(FormView):
         form = self.get_form(form_class)
         # pdb.set_trace()
         if form.is_valid():
+            #TODO
             keywords = form.cleaned_data['keywords'].split(',')
+            keywords = self.eng_to_hindi(keywords)
+            print(keywords)
+
             with open('kws/data/' + settings.USER['kaldi']['kws_raw_list'], 'w') as f:
                 for keyword in keywords:
                     f.write(keyword.upper() + '\n')
@@ -224,6 +228,27 @@ class SearchKeyword(FormView):
             return redirect('analysis')
 
         return render(request, 'kws/search_keyword.html', {'form': form})
+
+    def eng_to_hindi(self, keywords):
+        convertedkeyword=[]
+        ans = self.translate()
+        for kw in keywords:
+            if kw.isalpha():
+               if kw in ans.keys():
+                  convertedkeyword.append(ans[kw])
+               else:
+                    convertedkeyword.append(ans[kw])
+        return convertedkeyword
+
+    def translate(self):
+        f = open('kws/data/map_eng_to_hindi.txt', 'r')
+        answer = {}
+        for line in f:
+            list_word = line.strip().split()
+            if len(list_word) < 2:
+                continue
+            answer[list_word[0].strip()] = list_word[1].strip()
+        return answer
 
 
 class KeywordIndex(View):

@@ -25,7 +25,7 @@ SECRET_KEY = ')0m2&2o+jokoq%&*+6=4#79#*m@*mc46yohiq7a&9-nk&37_^^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','192.168.105.95','127.0.0.1']
+ALLOWED_HOSTS = ['localhost','192.168.5.245','127.0.0.1']
 
 #ALLOWED_HOSTS = []
 
@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ['localhost','192.168.105.95','127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
-    #'kws.apps.KwsConfig',
+    'kws.apps.KwsConfig',
     'asr.apps.AsrConfig',
     'django.contrib.admin',
     'django.contrib.auth',

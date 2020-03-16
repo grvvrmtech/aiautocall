@@ -1,0 +1,3 @@
+ball गेंद 
+flower फूल 
+apple सेब
