@@ -2,52 +2,97 @@
 {% load static %}
 {% block asr %}
 
-<div class="container-fluid">
-<span id="serverStatusBar" title="Number of available workers"></span>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Blank Template for Bootstrap</title>
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="style.css" rel="stylesheet">
+</head>
+<script>
+    var countBox =1;
+    var boxName = '';
+    function addInput()
+    {
 
-<div class="controls" align="center">
-<button 
-        style="background-color:lightblue; border-color:black; margin:10px"		      
-	id="buttonStart"
-	onclick="startListening();"
-	title="Starts listening for speech, i.e. starts recording and transcribing.">Start</button>
-<button
-        style="background-color:lightblue; border-color:black; margin:10px"                     
-	id="buttonStop"
-	onclick="stopListening();"
-	title="Stops listening for speech. Speech captured so far will be recognized as if the user had stopped speaking at this point. Note that in the default case, this does not need to be called, as the speech endpointer will automatically stop the recognizer listening when it determines speech has completed.">Stopp</button>
-<button       
-        style="background-color:lightblue; border-color:black; margin:10px"                     
-        id="buttonCancel"
-	onclick="cancel();"
-	title="Cancels the speech recognition.">Katkesta</button>
-</div>
+        countBox += 1;
+   
+            //document.getElementById('responce').innerHTML+=' <div class="row" align="center" style="margin-top: 51px; margin-left: -252px;"><button type="button" class="btn btn-light" id="buttonStart" onclick="startListening();" title="Starts listening for speech, i.e. starts recording and transcribing."style="margin-left:557px; width: 114px; background-repeat: no-repeat;  background-image: url({% static "images/startimg.jpeg" %}); background-size: cover; background-position: center center; height: 20px; margin-top: 28px; margin-left: 460px"></button><textarea class="form-control" id="trans'+countBox+'" value="'+countBox+'" " rows="3" cols="51" style="width: 453px; height: 40px; margin-left: 32px; margin-right:150px; margin-top: 29px;">'+countBox+'</textarea><button type="button" class="btn btn-light" id="buttonStop" onclick="stopListening();" title="Stops listening for speech. Speech captured so far will be recognized as if the user had stopped speaking at this point." style="margin-left: 1139px; width: 114px; background-repeat: no-repeat; background-size: cover; background-position: center center; height: 27px; margin-right: 119px; margin-top: -30px; background-image: url({% static "images/stopimg.jpg" %});"></button><div class="row" align="center" style="margin-top: 21px; margin-left: 852px; margin-right: 112px"></div>';//
+	    document.getElementById('responce').innerHTML+='<div class="row" align="center"><button id="buttonStart" onclick="startListening();" title="Starts listening for speech, i.e. starts recording and transcribing. "style="padding: 2px; border-radius: 8px; width: 125px; height: 30px; margin-top: 20px;background-image: url({% static "images/startimg.jpeg" %}); background-size: cover; background-position:center;margin-left:60px"></button><textarea cols="81" id=" trans1" style="margin-top: 30px; height:40px;margin-left:60px"></textarea><button id="buttonStop" onclick="stopListening();" title="Stops listening for speech. Speech captured so far will be recognized as if the user had stopped speaking at this point."style="padding: 2px; margin-top: 20px; border-radius: 8px;width: 125px; height: 30px;background-image: url({% static "images/stopimg.jpg" %}); background-size: cover; background-position:center;margin-left:60px"></button>';
+    }
+        
+    </script>
+    <style>
+    /* Mobile Styles */
+        @media only screen and (max-width: 400px) {
+            .row button{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
 
-<div align="center">
-<textarea placeholder="text here" rows="8" cols="80" style="background-color:#FFFFBF" id="trans">
-</textarea>
-</div>
+            }
+            .row textarea{
+                width: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
 
-<div id="statusBar"></div>
+            }
+            .container button{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
 
-<hr/>
+            }
 
-<div class="controls" align="center">
-<button
-	onclick="init();"
-	title="Request access to the microphone">Init</button>
+        }
+        
+</style>
 
-<button
-	onclick="showConfig();"
-	title="Show the configuration of the Dictate object">Config</button>
 
-<button
-	onclick="clearLog();"
-	title="Clear the log">Clear log</button>
-</div>
+    <body>
+       <!-- <div class="container" align="center">
+       <input type="button" onclick="addInput()" style="background-color: yellow; padding: 2px; border-radius: 8px; width: 125px; height: 30px; margin-top: 10px; margin-right: 270px; margin-left: 240px" value="ADD FILES"/>-->
+
+        <div class="container" align="center">
+        <input type="button" onclick="addInput()" style="background-color: yellow; padding: 2px; border-radius: 8px; width: 125px; height: 30px; margin-top: 10px" value="ADD FILES"/>
+
+        <div class="row" align="center">
+		<!-- <button id="buttonStart"  class="btn btn-light" onclick="startListening();" title="Starts listening for speech, i.e. starts recording and transcribing."style="margin-left:557px; width: 114px; background-repeat: no-repeat;  background-image: url({% static "images/startimg.jpeg" %}); background-size: cover; background-position: center center; height: 20px; margin-top: 28px; margin-left: 250px"></button>-->
+	<button id="buttonStart" onclick="startListening();" title="Starts listening for speech, i.e. starts recording and transcribing. "style="padding: 2px; border-radius: 8px; width: 125px; height: 30px; margin-top: 20px;background-image: url({% static "images/startimg.jpeg" %}); background-size: cover; background-position:center;margin-left:60px"></button>
+
+	<!-- <textarea cols="51"rows="3"id="trans1" style="margin-top: 30px; height: 40px"></textarea>-->
+	<textarea cols="81" id=" trans1" style="margin-top: 30px; height:40px;margin-left:60px"></textarea>
+
+
+	<!--<button class="btn btn-light" id="buttonStop" onclick="stopListening();" title="Stops listening for speech. Speech captured so far will be recognized as if the user had stopped speaking at this point." style="margin-left: 19px; width: 114px; background-repeat: no-repeat; background-size: cover; background-position: center center; height: 27px; margin-right: 119px; margin-top: 28px; background-image: url({% static "images/stopimg.jpg" %});"></button><div class="row" align="center" style="margin-top: -51px; margin-left: -52px; margin-right: -112px"></button>-->
+	<button id="buttonStop" onclick="stopListening();" title="Stops listening for speech. Speech captured so far will be recognized as if the user had stopped speaking at this point."style="padding: 2px; margin-top: 20px; border-radius: 8px;width: 125px; height: 30px;background-image: url({% static "images/stopimg.jpg" %}); background-size: cover; background-position:center;margin-left:60px"></button>
+    </div>
+
+            <span id="responce"></span>
+            <div id="statusBar"></div> 
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/popper.js"></script>
+            <script src="bootstrap/js/bootstrap.min.js"></script>
 
 <pre id="log">
-</pre>	
-	
-	
-{% endblock %}
+  </pre>  
+
+  
+
+            {% endblock %}
+
+        </body>
+        </html>

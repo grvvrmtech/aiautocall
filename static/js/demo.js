@@ -77,7 +77,8 @@ function __serverStatus(msg) {
 }
 
 function __updateTranscript(text) {
-	$("#trans").val(text);
+	$("#trans"+countBox).val(text);
+	console.log("#trans"+countBox)
 }
 
 // Public methods (called from the GUI)

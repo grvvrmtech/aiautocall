@@ -1,3 +1,5 @@
 ball गेंद 
 flower फूल 
 apple सेब
+morning सुबह
+breakfast नाश्ता
