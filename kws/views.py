@@ -144,7 +144,11 @@ class Keyword(FormView):
         # pdb.set_trace()
         files = request.FILES.getlist('file_field')
         if form.is_valid():
+            #TODO
             keyword_list = form.cleaned_data['keywords'].split(',')
+            keyword_list = Keyword.eng_to_hindi(keyword_list)
+            print(keyword_list)
+
             self.make_raw_list(keyword_list)
 
             kws_upload = settings.USER['kaldi']['kws_upload']
@@ -160,6 +164,30 @@ class Keyword(FormView):
             return redirect('analysis')
 
         return render(request, 'kws/keyword.html', {'form': form})
+    def eng_to_hindi(keyword_list):
+        convertedkeyword=[]
+        ans = Keyword.translate()
+        for kw in keyword_list:
+            if kw.isalpha():
+               if kw in ans.keys():
+                  convertedkeyword.append(ans[kw])
+               else:
+                    print("out of vocabulary")
+            else:
+                 convertedkeyword.append(kw)
+        return convertedkeyword
+
+    def translate():
+        f = open('kws/data/map_eng_to_hindi.txt', 'r')
+        answer = {}
+        for line in f:
+            list_word = line.strip().split()
+            if len(list_word) < 2:
+                continue
+            answer[list_word[0].strip()] = list_word[1].strip()
+        return answer
+
+
 
     def handle_upload_file(self, f, path):
         with open(path, 'wb+') as destination:
@@ -209,7 +237,11 @@ class SearchKeyword(FormView):
         form = self.get_form(form_class)
         # pdb.set_trace()
         if form.is_valid():
+            #TODO
             keywords = form.cleaned_data['keywords'].split(',')
+            keywords = Keyword.eng_to_hindi(keywords)
+            print(keywords)
+
             with open('kws/data/' + settings.USER['kaldi']['kws_raw_list'], 'w') as f:
                 for keyword in keywords:
                     f.write(keyword.upper() + '\n')

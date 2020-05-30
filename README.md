@@ -16,3 +16,23 @@ autocall_nginx.conf    :   change all address to change directory
 autocall/settings.py :  allow host your ip  
 autocall_uwgsi_ini : change chdr and socket to current directory  
 autocall/wsgi.py  :    change path to current directory  
+
+
+
+
+
+
+
+
+// git clone https://github.com/Balpreet11/aiautocall.git
+// python3 -m venv envn
+// cd aiautocall
+// git checkout newbranch
+// python -m pip install -r requirements.txt
+// python manager.py runserver
+
+
+ 
+
+
+
